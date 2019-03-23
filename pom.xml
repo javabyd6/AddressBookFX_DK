@@ -24,7 +24,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>pl.sda.jsondataset.Main</mainClass>
+                            <mainClass>pl.sda.addressbook.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
