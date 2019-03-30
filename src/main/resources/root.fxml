@@ -62,7 +62,7 @@
                           <buttons>
                             <Button onAction="#setNewPersonButton" fx:id="newPersonButton" mnemonicParsing="false" text="New Person" />
                               <Button fx:id="editButton" mnemonicParsing="false" text="Edit" />
-                              <Button fx:id="deleteButton" mnemonicParsing="false" text="Delete" />
+                              <Button onAction="#setDeleteButtonButton" fx:id="saveCSV" mnemonicParsing="false" text="saveCSV" />
                               <Button fx:id="saveButton" mnemonicParsing="false" text="Save" />
                           </buttons>
                         </ButtonBar>

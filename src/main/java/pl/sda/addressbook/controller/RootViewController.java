@@ -13,10 +13,14 @@ import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import pl.sda.addressbook.Main;
+import pl.sda.addressbook.csvparser.Parser;
+import pl.sda.addressbook.csvparser.RealEstate;
 import pl.sda.addressbook.model.Person;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class RootViewController implements Initializable {
@@ -44,9 +48,10 @@ public class RootViewController implements Initializable {
     @FXML
     private Button editButton;
     @FXML
-    private Button deleteButton;
+    private Button saveCSV;
     @FXML
     private Button saveButton;
+
 
     private Main main;
 
@@ -96,4 +101,28 @@ public class RootViewController implements Initializable {
         stage.show();
     }
 
-}
+    public List<String> getAllAddress(){
+        Parser parser = new Parser();
+        List<RealEstate> realEstateList = new ArrayList<>();
+        try {
+           realEstateList = parser.readFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        List<String> addressList = new ArrayList<>();
+        for (RealEstate realEstate : realEstateList) {
+            addressList.add(realEstate.getStreet());
+        }
+        return addressList;
+    }
+    public void setDeleteButtonButton(){
+        List<String> address = new ArrayList<>();
+        address.addAll(getAllAddress());
+        for (String s : address) {
+            Person person = new Person("csv","","","","",s);
+            main.getPersonList().add(person);
+        }
+    }
+
+    }
+

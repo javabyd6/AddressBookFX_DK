@@ -1,7 +1,5 @@
 package pl.sda.addressbook.controller;
 
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -34,6 +32,10 @@ public class NewPersonController implements Initializable {
 
     private Main main;
 
+    private Person person;
+
+
+
     public Main getMain() {
         return main;
     }
@@ -50,15 +52,14 @@ public class NewPersonController implements Initializable {
       stage.close();
     }
 
-    @FXML
     public void exitApplication() {
         Stage stage=(Stage) cancelButton.getScene().getWindow();
         stage.close();
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
 
